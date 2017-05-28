@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		42245FF513C765335E7C70BA /* Pods_myToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210E4D28E3FFDF6E18269FF /* Pods_myToDoListApp.framework */; };
-		8418B9E01ED6B0F400F664DF /* SubToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418B9DF1ED6B0F400F664DF /* SubToDo.swift */; };
+		843F16011EDA557600A9D305 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */; };
+		843F16031EDA55CB00A9D305 /* TaskHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843F16021EDA55CB00A9D305 /* TaskHeader.xib */; };
+		843F16051EDA68BD00A9D305 /* sampleTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F16041EDA68BD00A9D305 /* sampleTasks.swift */; };
 		8452805A1EC2BD1100B715E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845280591EC2BD1100B715E0 /* AppDelegate.swift */; };
 		8452805C1EC2BD1100B715E0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452805B1EC2BD1100B715E0 /* LoginVC.swift */; };
 		8452805F1EC2BD1100B715E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8452805D1EC2BD1100B715E0 /* Main.storyboard */; };
@@ -27,7 +29,9 @@
 		0A0A75CA0A51D67BC578AE49 /* Pods-myToDoListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myToDoListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-myToDoListApp/Pods-myToDoListApp.release.xcconfig"; sourceTree = "<group>"; };
 		579F517644C1F20F9059F376 /* Pods-myToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myToDoListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myToDoListApp/Pods-myToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6210E4D28E3FFDF6E18269FF /* Pods_myToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8418B9DF1ED6B0F400F664DF /* SubToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubToDo.swift; sourceTree = "<group>"; };
+		843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
+		843F16021EDA55CB00A9D305 /* TaskHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskHeader.xib; sourceTree = "<group>"; };
+		843F16041EDA68BD00A9D305 /* sampleTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sampleTasks.swift; sourceTree = "<group>"; };
 		845280561EC2BD1100B715E0 /* myToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845280591EC2BD1100B715E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8452805B1EC2BD1100B715E0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 				84CD97711EC2F5B30064C5AE /* Model */,
 				845280591EC2BD1100B715E0 /* AppDelegate.swift */,
 				8452805D1EC2BD1100B715E0 /* Main.storyboard */,
+				843F16021EDA55CB00A9D305 /* TaskHeader.xib */,
 				845280601EC2BD1100B715E0 /* Assets.xcassets */,
 				845280621EC2BD1100B715E0 /* LaunchScreen.storyboard */,
 				845280651EC2BD1100B715E0 /* Info.plist */,
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				84CD97761EC56D390064C5AE /* ToDoCell.swift */,
+				843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -102,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				84CD976F1EC2F5A40064C5AE /* Material.swift */,
+				843F16041EDA68BD00A9D305 /* sampleTasks.swift */,
 				84CD97781EC56F260064C5AE /* ToDo.swift */,
-				8418B9DF1ED6B0F400F664DF /* SubToDo.swift */,
 				84EAF9701ECEC5CF00416838 /* dashboardView.swift */,
 			);
 			name = View;
@@ -199,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845280641EC2BD1100B715E0 /* LaunchScreen.storyboard in Resources */,
+				843F16031EDA55CB00A9D305 /* TaskHeader.xib in Resources */,
 				8452806C1EC2BD6900B715E0 /* GoogleService-Info.plist in Resources */,
 				845280611EC2BD1100B715E0 /* Assets.xcassets in Resources */,
 				8452805F1EC2BD1100B715E0 /* Main.storyboard in Resources */,
@@ -262,12 +269,13 @@
 			files = (
 				8452805C1EC2BD1100B715E0 /* LoginVC.swift in Sources */,
 				84EAF9711ECEC5CF00416838 /* dashboardView.swift in Sources */,
-				8418B9E01ED6B0F400F664DF /* SubToDo.swift in Sources */,
 				84CD97751EC436500064C5AE /* HomeListVC.swift in Sources */,
 				84CD97701EC2F5A40064C5AE /* Material.swift in Sources */,
 				84CD97791EC56F260064C5AE /* ToDo.swift in Sources */,
 				8452805A1EC2BD1100B715E0 /* AppDelegate.swift in Sources */,
+				843F16011EDA557600A9D305 /* ExpandableHeaderView.swift in Sources */,
 				84CD97771EC56D390064C5AE /* ToDoCell.swift in Sources */,
+				843F16051EDA68BD00A9D305 /* sampleTasks.swift in Sources */,
 				84EAF96F1EC8FAE600416838 /* AddTaskVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

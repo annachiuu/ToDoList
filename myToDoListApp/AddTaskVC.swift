@@ -30,8 +30,8 @@ class AddTaskVC: UIViewController, UITextFieldDelegate {
     @IBAction func AddTaskPressed(_ sender: Any) {
         addNewTask()
         self.dismiss(animated: true, completion: nil)
-        let homeVC = HomeListVC()
-        homeVC.isCompletedTasksListOn = false
+//        let homeVC = HomeListVC()
+//        homeVC.isCompletedTasksListOn = false
     }
 
     
@@ -49,8 +49,10 @@ class AddTaskVC: UIViewController, UITextFieldDelegate {
         if titleLbl.text != "" {
             ref = FIRDatabase.database().reference()
             let uid = FIRAuth.auth()?.currentUser?.uid
+            
+
             //add new task to tasks node
-            let taskDict = ["ID": uid!, "Title": titleLbl.text!, "Description": descLbl.text!, "Time": timeLbl.text!] as [String : Any]
+            let taskDict = ["ID": uid!, "Title": titleLbl.text!, "Description": descLbl.text!, "Time": timeLbl.text!, "Expanded": false] as [String : Any]
             
             ref?.child("tasks").childByAutoId().updateChildValues(taskDict, withCompletionBlock: { (error, reference) in
                 if error != nil {

@@ -235,84 +235,6 @@
                                 <rect key="frame" x="0.0" y="205" width="375" height="382"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" rowHeight="88" id="VEO-2z-Dkn" customClass="ToDoCell" customModule="myToDoListApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="88"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VEO-2z-Dkn" id="S9E-wC-OWs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCP-6E-5X6" customClass="MaterialView" customModule="myToDoListApp" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="5" width="359" height="77"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfh-2y-EfR">
-                                                            <rect key="frame" x="12" y="25.5" width="37.5" height="27.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="27.5" id="JJa-Cs-Sgc"/>
-                                                                <constraint firstAttribute="width" constant="37.5" id="bxd-uU-UxF"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="8:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGY-BK-mlu">
-                                                            <rect key="frame" x="49.5" y="25.5" width="52" height="27.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="52" id="VsZ-tO-IRa"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fcO-Mh-iN3">
-                                                            <rect key="frame" x="121" y="11.5" width="228" height="52.5"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Cancel Wells Fargo Card there are a lot of words" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tu-4N-7SD">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="228" height="35"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Call Wells Fargo on the train" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c03-vT-H6O">
-                                                                    <rect key="frame" x="0.0" y="42" width="228" height="10.5"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
-                                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="kGY-BK-mlu" firstAttribute="top" secondItem="wfh-2y-EfR" secondAttribute="top" id="4rX-ky-e7i"/>
-                                                        <constraint firstItem="fcO-Mh-iN3" firstAttribute="leading" secondItem="kGY-BK-mlu" secondAttribute="trailing" constant="20" id="9IZ-wq-2OI"/>
-                                                        <constraint firstItem="kGY-BK-mlu" firstAttribute="bottom" secondItem="wfh-2y-EfR" secondAttribute="bottom" id="FXR-EO-Y25"/>
-                                                        <constraint firstItem="kGY-BK-mlu" firstAttribute="centerY" secondItem="jCP-6E-5X6" secondAttribute="centerY" id="Qev-Bc-efA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fcO-Mh-iN3" secondAttribute="trailing" constant="10" id="ZEh-vZ-Vc2"/>
-                                                        <constraint firstItem="wfh-2y-EfR" firstAttribute="leading" secondItem="jCP-6E-5X6" secondAttribute="leading" constant="12" id="cQa-nW-cXa"/>
-                                                        <constraint firstItem="wfh-2y-EfR" firstAttribute="centerY" secondItem="jCP-6E-5X6" secondAttribute="centerY" id="l79-Lc-PYe"/>
-                                                        <constraint firstItem="fcO-Mh-iN3" firstAttribute="centerY" secondItem="jCP-6E-5X6" secondAttribute="centerY" id="tlg-JV-FXF"/>
-                                                        <constraint firstItem="kGY-BK-mlu" firstAttribute="leading" secondItem="wfh-2y-EfR" secondAttribute="trailing" id="vKC-kG-FlF"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="jCP-6E-5X6" firstAttribute="top" secondItem="S9E-wC-OWs" secondAttribute="top" constant="5" id="DgS-xE-RAj"/>
-                                                <constraint firstAttribute="trailing" secondItem="jCP-6E-5X6" secondAttribute="trailing" constant="8" id="N4d-oZ-ndV"/>
-                                                <constraint firstItem="jCP-6E-5X6" firstAttribute="leading" secondItem="S9E-wC-OWs" secondAttribute="leading" constant="8" id="Ztx-TQ-JsE"/>
-                                                <constraint firstAttribute="bottom" secondItem="jCP-6E-5X6" secondAttribute="bottom" constant="5" id="s9g-e4-Ww6"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="DescLbl" destination="c03-vT-H6O" id="89T-c0-KBo"/>
-                                            <outlet property="TitleLbl" destination="4Tu-4N-7SD" id="tim-90-B9i"/>
-                                            <outlet property="bgView" destination="jCP-6E-5X6" id="Wzg-dc-nps"/>
-                                            <outlet property="timeLbl" destination="kGY-BK-mlu" id="F6f-Qv-7MN"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apl-sx-Qj7" customClass="MaterialBtn" customModule="myToDoListApp" customModuleProvider="target">
                                 <rect key="frame" x="275" y="557" width="80" height="50"/>
@@ -325,7 +247,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addBtnPressed:" destination="yGu-I2-4aB" eventType="touchUpInside" id="4oc-n0-BJI"/>
+                                    <action selector="addBtnPressed:" destination="yGu-I2-4aB" eventType="touchUpInside" id="IcV-6W-ARY"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9t-fH-4yb" customClass="PopUpView" customModule="myToDoListApp" customModuleProvider="target">
@@ -473,7 +395,7 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddTaskPressed:" destination="Juq-Fy-STB" eventType="touchUpInside" id="Zh8-aC-AAf"/>
+                                    <action selector="AddTaskPressed:" destination="Juq-Fy-STB" eventType="touchUpInside" id="Se0-SU-3AB"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cFw-ZP-W5k">

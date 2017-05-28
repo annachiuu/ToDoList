@@ -11,7 +11,9 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, TableViewCellDelegate {
+class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ExpandableHeaderViewDelegate {
+    
+    //removed TableViewCellDelegate
     
 //  Declarations  #######################################################
     @IBOutlet weak var welcomeView: MaterialView!
@@ -56,9 +58,21 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         UserNameLbl.layer.shadowOpacity = 1.0
         UserNameLbl.layer.shadowRadius = 1.0
         
-        initializePopUpView()
-        observeUserToDoList()
+//        initializePopUpView()
+//TEMP        observeUserToDoList()
         initializeTaskTapGesture()
+        
+        
+        task1.subTasks.append(subtask1)
+        task1.subTasks.append(subtask2)
+        task2.subTasks.append(subtask1)
+        task2.subTasks.append(subtask2)
+        tasks.append(task1)
+        tasks.append(task2)
+        
+        
+        tableView.register(UINib(nibName: "TaskHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "TaskHeader")
+
     }
 
 
@@ -73,7 +87,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.performSegue(withIdentifier: "toAddVC", sender: self)
     }
 
-
+/*
     @IBAction func exitPopUp(_ sender: Any) {
         UIView.animate(withDuration: 0.5) { 
             self.popUpView.isHidden = true
@@ -81,6 +95,9 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
         
     }
+*/
+    
+/*
     @IBAction func popUpSubmitPressed(_ sender: Any) {
         if titleEditLbl.text != "" {
             ref = FIRDatabase.database().reference()
@@ -103,10 +120,13 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.observeUserToDoList()
         self.datePicker.removeFromSuperview()
     }
+ 
+ */
+ 
     
 //  FUNCTIONS  ########################################################
-    
-//    #################### PopUpView
+/*
+ //    #################### PopUpView
     
     func initializePopUpView() {
         popUpView.center = self.view.center
@@ -141,7 +161,8 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         timeEditLbl.endEditing(true)
         super.touchesBegan(touches, with: event)
     }
-    
+  
+*/
 //    ########### TAP GESTURE FOR LIST TOGGLE
     
     func initializeTaskTapGesture() {
@@ -181,7 +202,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 //    ###########################################
     
     
-    
+   /* TEMP
     func observeUserToDoList() {
         
         tasks = [toDo]()
@@ -227,8 +248,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     
     }
-    
- 
+ TEMP */
     
 
 
@@ -294,9 +314,51 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
     }
     
+//  NEW UITableView Delegate with header initiated ###################################
 
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tasks.count
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks[section].subTasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tasks[indexPath.section].expanded {
+            return 44
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 88
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TaskHeader") as? ExpandableHeaderView {
+            
+            let headerTask = tasks[section]
+            
+            headerView.configureHeader(title: headerTask.title, description: headerTask.description, time: headerTask.time, section: section, delegate: self)
+            
+            return headerView
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //temporary basic cell 
+        let cell = UITableViewCell()
+        cell.textLabel?.text = tasks[indexPath.section].subTasks[indexPath.row].title
+        
+        return cell
+    }
+
+
+/*
 //  UITableView Delegate  ########################################################
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -323,13 +385,30 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
         }
     }
-    
+ */
     func array() -> [toDo] {
         let array = isCompletedTasksListOn ? completedTasks : tasks
         return array
     }
+//    ######################################################### NEW CUSTOM DELEGATES
     
+    func didTapTask(in section: Int) {
+        print("Section: \(section) tapped")
+        tasks[section].expanded = !tasks[section].expanded
+        print(tasks[section].expanded)
+        
+        tableView.beginUpdates()
+        for i in 0..<tasks[section].subTasks.count {
+            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+        }
+        tableView.endUpdates()
+        
+    }
     
+  
+/*
+    
+     
 //    ######################################################### CUSTOM DELEGATES
     
     func didDeleteCell(cell: UITableViewCell) {
@@ -404,6 +483,9 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.datePicker.isHidden = true
     }
+*/
 
+   
+ 
 }
 

@@ -15,8 +15,9 @@ class toDo {
     private var _description: String
     private var _time: String
     private var _taskKey: String
-    private var _subTasks: [String]
+    private var _subTasks: [toDo]
     
+    var expanded: Bool!
     
     var title: String {
         return _title
@@ -35,13 +36,32 @@ class toDo {
         return _taskKey
     }
     
+    var subTasks: [toDo] {
+        get {
+            return _subTasks
+        }
+        set {
+            self._subTasks = newValue
+        }
+    }
     
-    init(Title: String, Description: String, Time: String) {
+    
+    init(Title: String, Description: String, Time: String, Expanded: Bool) {
         _title = Title
         _description = Description
         _time = Time
         _taskKey = ""
-        _subTasks = [String]()
+        _subTasks = [toDo]()
+        expanded = Expanded
+    }
+    
+    init(Title: String) {
+        _title = Title
+        _description = ""
+        _time = ""
+        _taskKey = ""
+        _subTasks = [toDo]()
+        expanded = false
     }
     
     
@@ -62,7 +82,10 @@ class toDo {
         } else {
             self._time = ""
         }
-        self._subTasks = [String]()
+        self._subTasks = [toDo]()
+        if let expanded = dictionary["Expanded"] as? Bool {
+            self.expanded = expanded
+        }
 
     }
     

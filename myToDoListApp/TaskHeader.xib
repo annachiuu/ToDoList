@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ExpandableHeaderView" customModule="myToDoListApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-a4-EDq" customClass="MaterialView" customModule="myToDoListApp" customModuleProvider="target">
+                    <rect key="frame" x="8" y="5" width="359" height="657"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erd-rE-GOX">
+                            <rect key="frame" x="12" y="315.5" width="37.5" height="27.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="37.5" id="a7y-VR-llu"/>
+                                <constraint firstAttribute="height" constant="27.5" id="tM0-SX-p69"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="8:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gs2-k4-8sR">
+                            <rect key="frame" x="49.5" y="315.5" width="52" height="27.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="52" id="nR9-Gv-oZV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5uH-cL-H8S">
+                            <rect key="frame" x="121" y="302.5" width="228" height="52.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Cancel Wells Fargo Card there are a lot of words" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCI-7E-Y9w">
+                                    <rect key="frame" x="0.0" y="0.0" width="228" height="35"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Call Wells Fargo on the train" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scY-9Y-05Q">
+                                    <rect key="frame" x="0.0" y="42" width="228" height="10.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="erd-rE-GOX" firstAttribute="centerY" secondItem="gw7-a4-EDq" secondAttribute="centerY" id="75i-KG-krR"/>
+                        <constraint firstItem="Gs2-k4-8sR" firstAttribute="bottom" secondItem="erd-rE-GOX" secondAttribute="bottom" id="APq-Jo-Naa"/>
+                        <constraint firstItem="Gs2-k4-8sR" firstAttribute="centerY" secondItem="gw7-a4-EDq" secondAttribute="centerY" id="SFC-Xs-PpT"/>
+                        <constraint firstItem="5uH-cL-H8S" firstAttribute="leading" secondItem="Gs2-k4-8sR" secondAttribute="trailing" constant="20" id="arp-KW-J61"/>
+                        <constraint firstAttribute="trailing" secondItem="5uH-cL-H8S" secondAttribute="trailing" constant="10" id="dq6-zj-GNb"/>
+                        <constraint firstItem="5uH-cL-H8S" firstAttribute="centerY" secondItem="gw7-a4-EDq" secondAttribute="centerY" id="gr0-Fg-sj4"/>
+                        <constraint firstItem="Gs2-k4-8sR" firstAttribute="top" secondItem="erd-rE-GOX" secondAttribute="top" id="keL-m5-jf1"/>
+                        <constraint firstItem="erd-rE-GOX" firstAttribute="leading" secondItem="gw7-a4-EDq" secondAttribute="leading" constant="12" id="p37-pg-dMz"/>
+                        <constraint firstItem="Gs2-k4-8sR" firstAttribute="leading" secondItem="erd-rE-GOX" secondAttribute="trailing" id="pbF-T3-WaM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gw7-a4-EDq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0r4-nN-UIX"/>
+                <constraint firstAttribute="trailing" secondItem="gw7-a4-EDq" secondAttribute="trailing" constant="8" id="Bu4-It-SbB"/>
+                <constraint firstItem="gw7-a4-EDq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="J0N-VP-ahS"/>
+                <constraint firstAttribute="bottom" secondItem="gw7-a4-EDq" secondAttribute="bottom" constant="5" id="iHa-Wp-Oza"/>
+            </constraints>
+            <connections>
+                <outlet property="DescLbl" destination="scY-9Y-05Q" id="X3g-Pu-5ui"/>
+                <outlet property="TitleLbl" destination="VCI-7E-Y9w" id="qlT-z9-vNb"/>
+                <outlet property="timeLbl" destination="Gs2-k4-8sR" id="MOT-Qp-Ec2"/>
+            </connections>
+        </view>
+    </objects>
+</document>
