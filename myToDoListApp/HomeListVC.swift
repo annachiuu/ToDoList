@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ExpandableHeaderViewDelegate {
+class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ExpandableHeaderViewDelegate, AddSubTaskCellDelegate {
     
     //removed TableViewCellDelegate
     
@@ -314,6 +314,18 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
     }
     
+    
+    //reloadRows at
+    
+    func reloadRowsAt(section: Int) {
+        tableView.beginUpdates()
+        for i in 0..<tasks[section].subTasks.count {
+            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+        }
+        tableView.endUpdates()
+    }
+    
+    
 //  NEW UITableView Delegate with header initiated ###################################
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -321,7 +333,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks[section].subTasks.count
+        return tasks[section].subTasks.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -350,8 +362,20 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let totalRow = tableView.numberOfRows(inSection: indexPath.section)
+        
         //temporary basic cell 
         let cell = UITableViewCell()
+        
+        
+        if indexPath.row == totalRow - 1 {
+            let lastCell = tableView.dequeueReusableCell(withIdentifier: "addSubTask") as! addSubTaskCell
+            lastCell.delegate = self
+            lastCell.section = indexPath.section
+            return lastCell
+        }
+        
         cell.textLabel?.text = tasks[indexPath.section].subTasks[indexPath.row].title
         
         return cell
@@ -397,11 +421,22 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tasks[section].expanded = !tasks[section].expanded
         print(tasks[section].expanded)
         
-        tableView.beginUpdates()
-        for i in 0..<tasks[section].subTasks.count {
-            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
-        }
-        tableView.endUpdates()
+//        tableView.beginUpdates()
+//        for i in 0..<tasks[section].subTasks.count {
+//            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+//        }
+//        tableView.endUpdates()
+        
+        reloadRowsAt(section: section)
+        
+    }
+    
+    func newSubTaskAdded(text: String, in section: Int) {
+        print("New Sub task add")
+        let newSubTask = toDo(Title: text)
+        tasks[section].subTasks.append(newSubTask)
+        tableView.reloadData()
+        reloadRowsAt(section: section)
         
     }
     

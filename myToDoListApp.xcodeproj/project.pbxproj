@@ -17,6 +17,7 @@
 		845280611EC2BD1100B715E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845280601EC2BD1100B715E0 /* Assets.xcassets */; };
 		845280641EC2BD1100B715E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845280621EC2BD1100B715E0 /* LaunchScreen.storyboard */; };
 		8452806C1EC2BD6900B715E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8452806B1EC2BD6900B715E0 /* GoogleService-Info.plist */; };
+		846081141EDB7D4700A16D83 /* addSubTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846081131EDB7D4700A16D83 /* addSubTaskCell.swift */; };
 		84CD97701EC2F5A40064C5AE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD976F1EC2F5A40064C5AE /* Material.swift */; };
 		84CD97751EC436500064C5AE /* HomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD97741EC436500064C5AE /* HomeListVC.swift */; };
 		84CD97771EC56D390064C5AE /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD97761EC56D390064C5AE /* ToDoCell.swift */; };
@@ -40,6 +41,7 @@
 		845280631EC2BD1100B715E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845280651EC2BD1100B715E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8452806B1EC2BD6900B715E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		846081131EDB7D4700A16D83 /* addSubTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addSubTaskCell.swift; sourceTree = "<group>"; };
 		84CD976F1EC2F5A40064C5AE /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		84CD97741EC436500064C5AE /* HomeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListVC.swift; sourceTree = "<group>"; };
 		84CD97761EC56D390064C5AE /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				843F16041EDA68BD00A9D305 /* sampleTasks.swift */,
 				84CD97781EC56F260064C5AE /* ToDo.swift */,
 				84EAF9701ECEC5CF00416838 /* dashboardView.swift */,
+				846081131EDB7D4700A16D83 /* addSubTaskCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				84EAF9711ECEC5CF00416838 /* dashboardView.swift in Sources */,
 				84CD97751EC436500064C5AE /* HomeListVC.swift in Sources */,
 				84CD97701EC2F5A40064C5AE /* Material.swift in Sources */,
+				846081141EDB7D4700A16D83 /* addSubTaskCell.swift in Sources */,
 				84CD97791EC56F260064C5AE /* ToDo.swift in Sources */,
 				8452805A1EC2BD1100B715E0 /* AppDelegate.swift in Sources */,
 				843F16011EDA557600A9D305 /* ExpandableHeaderView.swift in Sources */,
