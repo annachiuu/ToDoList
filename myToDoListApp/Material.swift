@@ -71,6 +71,16 @@ class MaterialView: UIView {
     }
 }
 
+class SubTaskMaterialView: UIView {
+    override func awakeFromNib() {
+        layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        layer.shadowColor = UIColor(red: DARKGRAY, green: DARKGRAY, blue: DARKGRAY, alpha: 0.5).cgColor
+        layer.shadowRadius = 5.0
+        layer.shadowOpacity = 0.8
+    
+    }
+}
+
 class PopUpView: MaterialView {
     
     override func awakeFromNib() {

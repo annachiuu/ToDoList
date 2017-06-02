@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		42245FF513C765335E7C70BA /* Pods_myToDoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210E4D28E3FFDF6E18269FF /* Pods_myToDoListApp.framework */; };
+		843D8B5F1EDFDC3200A4DB2A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843D8B5D1EDFDC3200A4DB2A /* LICENSE.txt */; };
+		843D8B601EDFDC3200A4DB2A /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843D8B5E1EDFDC3200A4DB2A /* Satisfy-Regular.ttf */; };
 		843F16011EDA557600A9D305 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */; };
 		843F16031EDA55CB00A9D305 /* TaskHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843F16021EDA55CB00A9D305 /* TaskHeader.xib */; };
 		843F16051EDA68BD00A9D305 /* sampleTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F16041EDA68BD00A9D305 /* sampleTasks.swift */; };
@@ -18,6 +20,7 @@
 		845280641EC2BD1100B715E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845280621EC2BD1100B715E0 /* LaunchScreen.storyboard */; };
 		8452806C1EC2BD6900B715E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8452806B1EC2BD6900B715E0 /* GoogleService-Info.plist */; };
 		846081141EDB7D4700A16D83 /* addSubTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846081131EDB7D4700A16D83 /* addSubTaskCell.swift */; };
+		848E44F91EDCC54C003BA975 /* subTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E44F81EDCC54C003BA975 /* subTaskCell.swift */; };
 		84CD97701EC2F5A40064C5AE /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD976F1EC2F5A40064C5AE /* Material.swift */; };
 		84CD97751EC436500064C5AE /* HomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD97741EC436500064C5AE /* HomeListVC.swift */; };
 		84CD97771EC56D390064C5AE /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD97761EC56D390064C5AE /* ToDoCell.swift */; };
@@ -30,6 +33,8 @@
 		0A0A75CA0A51D67BC578AE49 /* Pods-myToDoListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myToDoListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-myToDoListApp/Pods-myToDoListApp.release.xcconfig"; sourceTree = "<group>"; };
 		579F517644C1F20F9059F376 /* Pods-myToDoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myToDoListApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myToDoListApp/Pods-myToDoListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6210E4D28E3FFDF6E18269FF /* Pods_myToDoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myToDoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		843D8B5D1EDFDC3200A4DB2A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		843D8B5E1EDFDC3200A4DB2A /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
 		843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		843F16021EDA55CB00A9D305 /* TaskHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskHeader.xib; sourceTree = "<group>"; };
 		843F16041EDA68BD00A9D305 /* sampleTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sampleTasks.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		845280651EC2BD1100B715E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8452806B1EC2BD6900B715E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		846081131EDB7D4700A16D83 /* addSubTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addSubTaskCell.swift; sourceTree = "<group>"; };
+		848E44F81EDCC54C003BA975 /* subTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subTaskCell.swift; sourceTree = "<group>"; };
 		84CD976F1EC2F5A40064C5AE /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		84CD97741EC436500064C5AE /* HomeListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListVC.swift; sourceTree = "<group>"; };
 		84CD97761EC56D390064C5AE /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
@@ -62,11 +68,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843D8B5C1EDFDC3200A4DB2A /* Satisfy */ = {
+			isa = PBXGroup;
+			children = (
+				843D8B5D1EDFDC3200A4DB2A /* LICENSE.txt */,
+				843D8B5E1EDFDC3200A4DB2A /* Satisfy-Regular.ttf */,
+			);
+			path = Satisfy;
+			sourceTree = "<group>";
+		};
 		8452804D1EC2BD1100B715E0 = {
 			isa = PBXGroup;
 			children = (
 				845280581EC2BD1100B715E0 /* myToDoListApp */,
 				845280571EC2BD1100B715E0 /* Products */,
+				843D8B5C1EDFDC3200A4DB2A /* Satisfy */,
 				AA64ED5AFCC46D495413B526 /* Pods */,
 				9DF9E19A372E6025F6D03DB6 /* Frameworks */,
 			);
@@ -100,7 +116,9 @@
 		84CD97711EC2F5B30064C5AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				846081131EDB7D4700A16D83 /* addSubTaskCell.swift */,
 				84CD97761EC56D390064C5AE /* ToDoCell.swift */,
+				848E44F81EDCC54C003BA975 /* subTaskCell.swift */,
 				843F16001EDA557600A9D305 /* ExpandableHeaderView.swift */,
 			);
 			name = Model;
@@ -113,7 +131,6 @@
 				843F16041EDA68BD00A9D305 /* sampleTasks.swift */,
 				84CD97781EC56F260064C5AE /* ToDo.swift */,
 				84EAF9701ECEC5CF00416838 /* dashboardView.swift */,
-				846081131EDB7D4700A16D83 /* addSubTaskCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -207,7 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843D8B5F1EDFDC3200A4DB2A /* LICENSE.txt in Resources */,
 				845280641EC2BD1100B715E0 /* LaunchScreen.storyboard in Resources */,
+				843D8B601EDFDC3200A4DB2A /* Satisfy-Regular.ttf in Resources */,
 				843F16031EDA55CB00A9D305 /* TaskHeader.xib in Resources */,
 				8452806C1EC2BD6900B715E0 /* GoogleService-Info.plist in Resources */,
 				845280611EC2BD1100B715E0 /* Assets.xcassets in Resources */,
@@ -271,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8452805C1EC2BD1100B715E0 /* LoginVC.swift in Sources */,
+				848E44F91EDCC54C003BA975 /* subTaskCell.swift in Sources */,
 				84EAF9711ECEC5CF00416838 /* dashboardView.swift in Sources */,
 				84CD97751EC436500064C5AE /* HomeListVC.swift in Sources */,
 				84CD97701EC2F5A40064C5AE /* Material.swift in Sources */,

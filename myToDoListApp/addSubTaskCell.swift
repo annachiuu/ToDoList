@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 protocol AddSubTaskCellDelegate: class {
     func newSubTaskAdded(text: String, in section: Int)
@@ -16,6 +18,9 @@ class addSubTaskCell: UITableViewCell {
     
     var delegate: AddSubTaskCellDelegate? = nil
     var section: Int!
+    var sectionID: String!
+    
+    var ref: FIRDatabaseReference?
     
     @IBOutlet weak var newTitleTxtField: MaterialTxtField!
     
@@ -32,9 +37,23 @@ class addSubTaskCell: UITableViewCell {
     @IBAction func addSubTaskPressed(_ sender: Any) {
         
         if newTitleTxtField.text != "" {
-            self.delegate?.newSubTaskAdded(text: newTitleTxtField.text!, in: section)
+            let task = newTitleTxtField.text
+            self.delegate?.newSubTaskAdded(text: task!, in: section)
+            
+            let ref = FIRDatabase.database().reference()
+            
+            ref.child("tasks").child(self.sectionID).child("Subtasks").childByAutoId().updateChildValues(["Title": task!], withCompletionBlock: { (error, REF) in
+                if error != nil {
+                    print(error.debugDescription)
+                } else {
+                    print("Added \(REF) to Firebase")
+                }
+            })
+        
+            
         }
         newTitleTxtField.text = ""
+        
     }
     
     

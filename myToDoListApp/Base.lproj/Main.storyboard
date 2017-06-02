@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satisfy-Regular.ttf">
+            <string>Satisfy</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
@@ -123,7 +128,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-P4-FHo">
-                                        <rect key="frame" x="40" y="40" width="200" height="65.5"/>
+                                        <rect key="frame" x="40" y="40" width="200" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TU-H6-LDy">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="24"/>
@@ -131,12 +136,13 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anna" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-U8-a11">
-                                                <rect key="frame" x="0.0" y="24" width="200" height="41.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-U8-a11">
+                                                <rect key="frame" x="0.0" y="24" width="200" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="B6A-Fd-JjY"/>
+                                                    <constraint firstAttribute="height" constant="60" id="OcL-P5-C2D"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                                <fontDescription key="fontDescription" name="Satisfy" family="Satisfy" pointSize="40"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -244,16 +250,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-rf-mgW">
-                                                    <rect key="frame" x="15" y="7" width="345" height="30"/>
+                                                    <rect key="frame" x="30" y="7" width="325" height="30"/>
                                                     <subviews>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NEW TASK" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-6V-ryo" customClass="MaterialTxtField" customModule="myToDoListApp" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="30"/>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NEW SUB-TASK" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUS-6V-ryo" customClass="MaterialTxtField" customModule="myToDoListApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7T9-Ja-C62">
-                                                            <rect key="frame" x="307" y="0.0" width="38" height="30"/>
+                                                            <rect key="frame" x="287" y="0.0" width="38" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="38" id="Cgx-F1-LQh"/>
                                                             </constraints>
@@ -268,13 +274,86 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="mRa-rf-mgW" secondAttribute="trailing" constant="15" id="LWv-0t-OU6"/>
-                                                <constraint firstItem="mRa-rf-mgW" firstAttribute="leading" secondItem="hSS-cZ-Ou8" secondAttribute="leading" constant="15" id="TYC-Po-BVY"/>
+                                                <constraint firstAttribute="trailing" secondItem="mRa-rf-mgW" secondAttribute="trailing" constant="20" id="LWv-0t-OU6"/>
+                                                <constraint firstItem="mRa-rf-mgW" firstAttribute="leading" secondItem="hSS-cZ-Ou8" secondAttribute="leading" constant="30" id="TYC-Po-BVY"/>
                                                 <constraint firstItem="mRa-rf-mgW" firstAttribute="centerY" secondItem="hSS-cZ-Ou8" secondAttribute="centerY" id="US8-KF-3tz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="newTitleTxtField" destination="cUS-6V-ryo" id="5dg-Ib-Qhu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subTaskCell" rowHeight="44" id="UY1-QM-NdP" customClass="subTaskCell" customModule="myToDoListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UY1-QM-NdP" id="bsK-8r-l4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-Lr-Rky" customClass="SubTaskMaterialView" customModule="myToDoListApp" customModuleProvider="target">
+                                                    <rect key="frame" x="30" y="0.0" width="315" height="43.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imi-O8-GvD">
+                                                            <rect key="frame" x="10" y="6" width="295" height="30"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vS3-SX-Rm7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="1u9-un-IF3"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="Nc5-P5-e85"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                                    <state key="normal" title="-">
+                                                                        <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="completeToggled:" destination="UY1-QM-NdP" eventType="touchUpInside" id="8cH-Ep-sUF"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fij-ap-NPY">
+                                                                    <rect key="frame" x="30" y="0.0" width="235" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="xan-dL-0Xt"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfz-0y-bfI">
+                                                                    <rect key="frame" x="265" y="0.0" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="9lg-uS-N9T"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="dvc-ZP-EMK"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                                                    <state key="normal" title="x">
+                                                                        <color key="titleColor" red="0.19437691570000001" green="0.45787721869999998" blue="0.58307433129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="deleteSubTaskPressed:" destination="UY1-QM-NdP" eventType="touchUpInside" id="Cin-3N-zHj"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="imi-O8-GvD" secondAttribute="trailing" constant="10" id="1Eg-Zs-X95"/>
+                                                        <constraint firstItem="imi-O8-GvD" firstAttribute="centerY" secondItem="AX0-Lr-Rky" secondAttribute="centerY" id="Lop-NU-qUa"/>
+                                                        <constraint firstItem="imi-O8-GvD" firstAttribute="leading" secondItem="AX0-Lr-Rky" secondAttribute="leading" constant="10" id="Nlk-zh-DEQ"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="AX0-Lr-Rky" secondAttribute="trailing" constant="30" id="2k5-3M-0xw"/>
+                                                <constraint firstAttribute="bottom" secondItem="AX0-Lr-Rky" secondAttribute="bottom" id="7pW-7D-5W5"/>
+                                                <constraint firstItem="AX0-Lr-Rky" firstAttribute="top" secondItem="bsK-8r-l4x" secondAttribute="top" id="dLw-5D-yuO"/>
+                                                <constraint firstItem="AX0-Lr-Rky" firstAttribute="leading" secondItem="bsK-8r-l4x" secondAttribute="leading" constant="30" id="yGM-dR-gsj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkmark" destination="vS3-SX-Rm7" id="umO-N5-Md3"/>
+                                            <outlet property="titleLbl" destination="fij-ap-NPY" id="RR5-mX-K9V"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

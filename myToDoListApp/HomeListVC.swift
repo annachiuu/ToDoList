@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ExpandableHeaderViewDelegate, AddSubTaskCellDelegate {
+class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, ExpandableHeaderViewDelegate, AddSubTaskCellDelegate,subTaskCellDelegate {
     
     //removed TableViewCellDelegate
     
@@ -59,16 +59,8 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         UserNameLbl.layer.shadowRadius = 1.0
         
 //        initializePopUpView()
-//TEMP        observeUserToDoList()
+        observeUserToDoList()
         initializeTaskTapGesture()
-        
-        
-        task1.subTasks.append(subtask1)
-        task1.subTasks.append(subtask2)
-        task2.subTasks.append(subtask1)
-        task2.subTasks.append(subtask2)
-        tasks.append(task1)
-        tasks.append(task2)
         
         
         tableView.register(UINib(nibName: "TaskHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "TaskHeader")
@@ -202,7 +194,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 //    ###########################################
     
     
-   /* TEMP
+
     func observeUserToDoList() {
         
         tasks = [toDo]()
@@ -220,36 +212,58 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             let messageID = snapshot.key
             let messageRef = FIRDatabase.database().reference().child("tasks").child(messageID)
-
+            
             messageRef.observeSingleEvent(of: .value, with: { (UserSnapshot) in
+                
+                
                 if let taskDict = UserSnapshot.value as? [String: AnyObject] {
+                    
+
+                    
                     let task = toDo(taskKey: UserSnapshot.key, dictionary: taskDict)
                     self.tasks.append(task)
                     self.tasks.sort(by: {$0.time < $1.time})
+                    
+                    let ref2 = messageRef.child("Subtasks")
+                    ref2.observe(.childAdded, with: { (snaps) in
+                        let dictionary = snaps.value as? [String: AnyObject]
+                        if let subtask = dictionary?["Title"] as? String {
+                            print(subtask)
+                            task.subTasks.append(toDo(Title: subtask))
+                            print("count", task.subTasks.count)
+                            self.tableView.reloadData()
+                        }
+                        
+                    })
+                    
                     self.updateCompletionLabels()
+                    
                 }
             })
-        })
             
+            
+        })
+        
+        
         q_completed?.observe(.childAdded, with: { (snapshot) in
             
             let messageID_c = snapshot.key
             let messageRef_c = FIRDatabase.database().reference().child("tasks").child(messageID_c)
-
+            
             messageRef_c.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let taskDict = snapshot.value as? [String: AnyObject] {
-                    let task = toDo(taskKey: snapshot.key, dictionary: taskDict)
+                if let taskDict = snapshot.value as? [String: AnyObject] {
+                    let task = toDo(taskKey: snapshot.key, dictionary: taskDict )
                     self.completedTasks.append(task)
                     self.updateCompletionLabels()
                 }
             })
         })
         
-    
-    
+        
+        
     }
- TEMP */
     
+
 
 
     func checkIfUserIsLoggedIn() {
@@ -285,11 +299,11 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
     }
     
-    func deleteTaskFromFirebase(indexPath: IndexPath) {
+    func deleteTaskFromFirebase(section: Int) {
         
         ref = FIRDatabase.database().reference()
         
-        let task = array()[indexPath.row].taskKey
+        let task = array()[section].taskKey
         
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
             return
@@ -315,15 +329,7 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     
-    //reloadRows at
-    
-    func reloadRowsAt(section: Int) {
-        tableView.beginUpdates()
-        for i in 0..<tasks[section].subTasks.count {
-            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
-        }
-        tableView.endUpdates()
-    }
+
     
     
 //  NEW UITableView Delegate with header initiated ###################################
@@ -333,7 +339,9 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("UmberofRowsInSection", tasks[section].subTasks.count + 1)
         return tasks[section].subTasks.count + 1
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -365,51 +373,34 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         let totalRow = tableView.numberOfRows(inSection: indexPath.section)
         
-        //temporary basic cell 
-        let cell = UITableViewCell()
-        
-        
-        if indexPath.row == totalRow - 1 {
-            let lastCell = tableView.dequeueReusableCell(withIdentifier: "addSubTask") as! addSubTaskCell
-            lastCell.delegate = self
-            lastCell.section = indexPath.section
-            return lastCell
-        }
-        
-        cell.textLabel?.text = tasks[indexPath.section].subTasks[indexPath.row].title
-        
-        return cell
-    }
-
-
-/*
-//  UITableView Delegate  ########################################################
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return isCompletedTasksListOn ? completedTasks.count: tasks.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as? ToDoCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "subTaskCell") as? subTaskCell {
             
+            let sectionID = tasks[indexPath.section].taskKey
+            
+            if indexPath.row == totalRow - 1 {
+                let lastCell = tableView.dequeueReusableCell(withIdentifier: "addSubTask") as! addSubTaskCell
+                lastCell.delegate = self
+                lastCell.section = indexPath.section
+                lastCell.sectionID = sectionID
+                return lastCell
+            }
+            
+            let title = tasks[indexPath.section].subTasks[indexPath.row].title
+            cell.titleLbl.text = title
+            cell.completed = false
+            cell.title = title
+            cell.indexPath = indexPath
             cell.delegate = self
-            
-            let currentTask  = isCompletedTasksListOn ? completedTasks[indexPath.row] : tasks[indexPath.row]
-
-            cell.configureCell(Title: currentTask.title , Description: currentTask.description, Time: currentTask.time)
             return cell
             
         } else {
-            return ToDoCell()
-            
+            return subTaskCell()
         }
+        
     }
- */
+
+    
+    
     func array() -> [toDo] {
         let array = isCompletedTasksListOn ? completedTasks : tasks
         return array
@@ -421,85 +412,85 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tasks[section].expanded = !tasks[section].expanded
         print(tasks[section].expanded)
         
-//        tableView.beginUpdates()
-//        for i in 0..<tasks[section].subTasks.count {
-//            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
-//        }
-//        tableView.endUpdates()
-        
         reloadRowsAt(section: section)
         
     }
     
     func newSubTaskAdded(text: String, in section: Int) {
         print("New Sub task add")
-        let newSubTask = toDo(Title: text)
-        tasks[section].subTasks.append(newSubTask)
-        tableView.reloadData()
-        reloadRowsAt(section: section)
+
         
     }
     
+    //reloadRows at
+    
+    func reloadRowsAt(section: Int) {
+        tableView.beginUpdates()
+        for i in 0..<tasks[section].subTasks.count {
+            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+        }
+        tableView.endUpdates()
+    }
+    
   
-/*
+
     
      
 //    ######################################################### CUSTOM DELEGATES
     
-    func didDeleteCell(cell: UITableViewCell) {
+    func didDeleteCell(in section: Int) {
         
-            if let indexPath = self.tableView.indexPath(for: cell) {
+
                 print("Will be deleted")
-                deleteTaskFromFirebase(indexPath: indexPath)
+                deleteTaskFromFirebase(section: section)
                 
                 if isCompletedTasksListOn {
-                    completedTasks.remove(at: indexPath.row)
+                    completedTasks.remove(at: section)
                 } else {
-                    tasks.remove(at: indexPath.row)
+                    tasks.remove(at: section)
 
                 }
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteSections([section], with: .fade)
                 self.updateCompletionLabels()
-            }
     }
     
-    func didCheckCell(cell: UITableViewCell) {
+    
+    
+    func didCheckCell(in section: Int) {
         
-            if let indexPath = self.tableView.indexPath(for: cell) {
-                
-                let taskId = array()[indexPath.row].taskKey
-                let checkBool = isCompletedTasksListOn ? false : true
-
-                ref = FIRDatabase.database().reference().child("tasks").child(taskId)
-                
-                ref?.updateChildValues(["Completion": checkBool])
-                
-                guard let uid = FIRAuth.auth()?.currentUser?.uid else {
-                    return
-                }
-                
-                let refFan = FIRDatabase.database().reference().child("user-tasks").child(uid)
-                refFan.child(taskId).updateChildValues(["Completion": checkBool])
-            
-                
-                //transfer task to completedTask / tasks array
-                if isCompletedTasksListOn {
-                    completedTasks.remove(at: indexPath.row)
-                } else {
-                    tasks.remove(at: indexPath.row)
-                }
-                
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                self.updateCompletionLabels()
-
-                print("task \(taskId): completed")
-                
+        let taskId = array()[section].taskKey
+        let checkBool = isCompletedTasksListOn ? false : true
+        
+        ref = FIRDatabase.database().reference().child("tasks").child(taskId)
+        
+        ref?.updateChildValues(["Completion": checkBool])
+        
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+            return
         }
+        
+        let refFan = FIRDatabase.database().reference().child("user-tasks").child(uid)
+        refFan.child(taskId).updateChildValues(["Completion": checkBool])
+        
+        
+        //transfer task to completedTask / tasks array
+        if isCompletedTasksListOn {
+            completedTasks.remove(at: section)
+        } else {
+            tasks.remove(at: section)
+        }
+        
+        tableView.deleteSections([section], with: .fade)
+        self.updateCompletionLabels()
+        
+        print("task \(taskId): completed")
+        
     }
     
-    func didLongPress(cell: UITableViewCell) {
+    func didLongPress(in section: Int) {
+        /*
         print("long press register")
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: { 
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             self.popUpView.isHidden = false
             self.exitButton.isHidden = false
         }, completion: nil)
@@ -511,14 +502,18 @@ class HomeListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             descEditLbl.text = editingTask.description
             timeEditLbl.text = editingTask.time
             taskEditingId = editingTask.taskKey
-        }
+        }*/
 
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.datePicker.isHidden = true
     }
-*/
+
+    func didDeleteSubTask(at indexPath: IndexPath) {
+        
+
+    }
 
    
  

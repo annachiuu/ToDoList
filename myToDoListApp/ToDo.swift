@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 
 class toDo {
@@ -16,6 +17,8 @@ class toDo {
     private var _time: String
     private var _taskKey: String
     private var _subTasks: [toDo]
+//    private var _subTasks: [String]
+
     
     var expanded: Bool!
     
@@ -82,11 +85,21 @@ class toDo {
         } else {
             self._time = ""
         }
-        self._subTasks = [toDo]()
+        
         if let expanded = dictionary["Expanded"] as? Bool {
             self.expanded = expanded
         }
+        
+        self._subTasks = [toDo]()
 
+//        if let tasksDict = dictionary["Subtasks"] as? [String: String] {
+//            print(tasksDict)
+//            let subTasks = tasksDict["Title"]
+//            self._subTasks.append(toDo(Title:subTasks!))
+//        }
+        
     }
-    
+
+
+
 }

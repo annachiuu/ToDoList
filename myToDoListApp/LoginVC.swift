@@ -25,16 +25,14 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkIsUserLoggedIn()
+
         
         if segmentCtrl.selectedSegmentIndex == 1 {
             userIDTxtField.isHidden = false
         } else {
             userIDTxtField.isHidden = true
         }
-        
-        
-        checkIsUserLoggedIn()
-        
         
     }
     
@@ -49,7 +47,6 @@ class LoginVC: UIViewController {
             
             if user != nil {
                 //user is signed in
-                print("user \(uid) logged in")
                 
                 self.performSegue(withIdentifier: "toHomelist", sender: self)
             } else {
@@ -132,10 +129,10 @@ class LoginVC: UIViewController {
         switch segmentCtrl.selectedSegmentIndex {
         case 0:
             userIDTxtField.isHidden = true
-            loginBtn.titleLabel?.text = "Log In"
+            loginBtn.setTitle("Log In", for: .normal)
         case 1:
             userIDTxtField.isHidden = false
-            loginBtn.titleLabel?.text = "Sign Up"
+            loginBtn.setTitle("Sign in", for: .normal)
         default:
             break
         }
